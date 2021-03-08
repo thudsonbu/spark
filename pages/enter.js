@@ -67,7 +67,7 @@ function UsernameForm() {
       setLoading(false);
       setIsValid(false);
     }
-
+    // usernames need to pass the regex (a-z and 0-9 . _ )
     if (re.test(val)) {
       setFormValue(val);
       setLoading(true);
@@ -86,7 +86,8 @@ function UsernameForm() {
       // create ref for both documents
       const userDoc = firestore.doc(`users/${user.uid}`);
       const usernameDoc = firestore.doc(`usernames/${formValue}`);
-
+      // using a batch we can create a database transaction and update both docs
+      // at once
       const batch = firestore.batch();
       batch.set(userDoc, {
         username: formValue,
