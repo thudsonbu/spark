@@ -67,7 +67,7 @@ function UsernameForm() {
       setLoading(false);
       setIsValid(false);
     }
-    // usernames need to pass the regex (a-z and 0-9 . _ )
+    // usernames need to pass the regex (a-Z and 0-9 . _ )
     if (re.test(val)) {
       setFormValue(val);
       setLoading(true);

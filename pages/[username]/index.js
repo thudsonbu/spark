@@ -46,7 +46,7 @@ export async function getServerSideProps({ query }) {
 export default function UserProfilePage({ user, posts }) {
   return (
     <main>
-      <UserProfile user={user} />
+      <UserProfile dbuser={user} />
       <PostFeed posts={posts} />
     </main>
   );
