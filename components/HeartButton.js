@@ -10,6 +10,8 @@ export default function Heart({ postRef }) {
   // Create a user-to-post relationship
   const addHeart = async () => {
     const uid = auth.currentUser.uid;
+    // we use a batch here because we are both updating the heart count and
+    // creating a new document ( in the db a heart doc contains a uid )
     const batch = firestore.batch();
 
     batch.update(postRef, { heartCount: increment(1) });
@@ -20,6 +22,8 @@ export default function Heart({ postRef }) {
 
   // Remove a user-to-post relationship
   const removeHeart = async () => {
+    // we use a batch here because we are both updating the heart count and
+    // deleting a heart document ( in the db a heart doc contains a uid )
     const batch = firestore.batch();
 
     batch.update(postRef, { heartCount: increment(-1) });
