@@ -1,11 +1,5 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-#firebaseconfig
-firebaseconfig.js
-
-#databaserule
-database.rules.json
-
 #vscode
 .vscode
 
@@ -41,3 +35,6 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# env
+.env
